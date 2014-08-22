@@ -5,10 +5,10 @@ import com.dreammore.framework.user.model.Role;
 
 public enum RoleInfo implements Role, Enumable {
 
-	ADMINISTRATOR("网站管理员"), WEBSERVICER("网站客服人员"), 
-	FOUNDER("创始人"), SHAREHOLDER("股东"), 
-	GENERALMEMBER("一般会员"), AUTHENTICATIONMEMBER("认证会员"), TRADINGMEMBER("交易会员"), 
-	OTHERUSER("其他人员");
+	ADMINISTRATOR("网站管理人员"),  
+	EDITOR("网站编辑人员"),
+	SERVICER("网站服务人员"),
+	;
 
 	private String value;
 

@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -49,11 +47,6 @@ public class UserInfo extends BaseUidEntity implements User {
 	@Column(name = "CELL_PHONE", unique = true)
 	private String cellphone;
 
-	@Comment(value = "QQ号码",searchable = true)
-	@Validate(maxlength = "20") 
-	@Column(name = "QQ_CODE")
-	private String qqCode;
-
 	@Comment(value = "电子邮箱")
 	@Validate(maxlength = "20") 
 	@Column(name = "EMAIL")
@@ -87,39 +80,11 @@ public class UserInfo extends BaseUidEntity implements User {
 	@Comment(value = "用户状态", searchable = true)
 	@Column(name = "STATE")
 	private UserState state;
-
-	@Comment(value = "归属用户")
-	@ManyToOne
-	@JoinColumn(name = "OWNER_USER_ID")
-	private UserInfo ownership;
-	
-	@Column(name = "GUARANTEED")
-	@Comment("主动担保") 
-	private Boolean guaranteed ; //true时为主动担保
 	
 	@Column(name = "GENDER")
 	@Comment("性别") 
 	@Validate(required = true) 
 	private Boolean gender;
-	
-	@Column(name = "ID_CARD")
-	@Comment(value = "身份证号码",searchable = true)
-	@Validate(required = true) 
-	private String idCard;
-	
-	@Column(name = "ID_CARD_URL")
-	@Comment(value = "身份证照片地址") 
-	@Validate(required = true) 
-	private String idCardUrl;
-	
-	@Comment(value = "到期时间")
-	@Column(name = "EXPIRED_DATE")
-	@Temporal(TemporalType.DATE)
-	private Date expiredDate;
-	
-	@Comment(value = "地域", searchable = true)
-	@Column(name = "REGION")
-	private String region;
 	
 	/****************************** setter/getter *******************************************/
 	
@@ -148,13 +113,6 @@ public class UserInfo extends BaseUidEntity implements User {
 		this.cellphone = cellphone;
 	}
 
-	public String getQqCode() {
-		return qqCode;
-	}
-
-	public void setQqCode(String qqCode) {
-		this.qqCode = qqCode;
-	}
 
 	public String getEmail() {
 		return email;
@@ -212,22 +170,7 @@ public class UserInfo extends BaseUidEntity implements User {
 		this.nickName = nickName;
 	}
 
-	public UserInfo getOwnership() {
-		return ownership;
-	}
-
-	public void setOwnership(UserInfo ownership) {
-		this.ownership = ownership;
-	}
-	
-	public Boolean getGuaranteed() {
-		return guaranteed;
-	}
-
-	public void setGuaranteed(Boolean guaranteed) {
-		this.guaranteed = guaranteed;
-	}
-	
+		
 	public Boolean getGender() {
 		return gender;
 	}
@@ -246,37 +189,7 @@ public class UserInfo extends BaseUidEntity implements User {
 	}
 	
 	
-	public String getIdCard() {
-		return idCard;
-	}
-
-	public void setIdCard(String idCard) {
-		this.idCard = idCard;
-	}
-
-	public String getIdCardUrl() {
-		return idCardUrl;
-	}
-
-	public void setIdCardUrl(String idCardUrl) {
-		this.idCardUrl = idCardUrl;
-	}
 	
-	public Date getExpiredDate() {
-		return expiredDate;
-	}
-
-	public void setExpiredDate(Date expiredDate) {
-		this.expiredDate = expiredDate;
-	}
-	
-	public String getRegion() {
-		return region;
-	}
-
-	public void setRegion(String region) {
-		this.region = region;
-	}
 
 
 	
